@@ -31,7 +31,7 @@ build() {
     [ $# -eq 4 ] && branch=$4
     git clone --depth 1 --single-branch --branch "$branch" "$url" "$HOME/aports"
     cp -r "$HOME/aports/$repo/$package/"* "$PKGSRC"/
-  else
+  elif [ ! $# -eq 0 ]; then
     echo "build: unknown paramaters: $@"
     return 0
   fi
